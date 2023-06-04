@@ -1,32 +1,32 @@
 fun main() {
-    val vitor = Funcionario(
-        nome = "Vitor",
-        cpf = "096.381.125-81",
-        salario = 3000.0,
-        tipo = TipoFuncionario.DIRETOR
-    )
+    val contaCorrente = ContaCorrente("Vitinho", 123)
+    val contaPoupanca = ContaPoupaca("Ellinha", 321)
 
-    println("Seja bem vindo, ${vitor.nome} já temos seu dados, como cpf, ${vitor.cpf} e o salario ${vitor.salario}")
-    println("Parabéns ${vitor.nome} você recebeu uma bonificação. sua bonificação foi de: ${vitor.bonificacao()}")
+    println("Depositando nas contas do vitor e da ellen")
+    println("depositando...")
 
-    val vinicius = Gerente(
-        nome = "Vinicius",
-        cpf = "118.488.239-83",
-        salario = 3000.0,
-        senha = "1234"
-    )
+    contaCorrente.deposita(1000.0)
+    contaPoupanca.deposita(1000.0)
 
-    println("Seja bem vindo, ${vinicius.nome} já temos seu dados, como cpf, ${vinicius.cpf} e o salario ${vinicius.salario}")
-    println("Parabéns ${vinicius.nome} você recebeu uma bonificação. sua bonificação foi de: ${vinicius.bonificacao()}")
+    println("Pronto, operação realizada com sucesso!")
 
-    val ellen = Diretor(
-        nome = "Ellen",
-        cpf = "blabla",
-        salario = 5000.0,
-        senha = "1234"
-    )
+    contaCorrente.saca(100.0)
+    println("Saque de 100 reais foi realizado com sucesso na conta corrente")
+    println("Seu novo saldo agora é de: ${contaCorrente.saldo}")
+    contaPoupanca.saca(100.0)
+    println("Saque de 100 reais foi realizado com sucesso na conta poupança")
+    println("Seu novo saldo agora é de: ${contaPoupanca.saldo}")
+    contaPoupanca.transfere(100.0, contaCorrente)
+    println("Transferindo 100 reais da conta poupança para a conta corrente")
+    println("Saldo da conta corrente é de: ${contaCorrente.saldo}")
+    println("Saldo da conta poupança é de: ${contaPoupanca.saldo}")
 
-    println("Seja bem vindo, ${ellen.nome} já temos seu dados, como cpf, ${ellen.cpf} e o salario ${ellen.salario}")
+    println("------------------------------------")
+
+    contaCorrente.transfere(99999.0, contaPoupanca)
+    println("Transferido 800 reais da conta corrente para a conta poupança")
+    println("Saldo da conta corrente agora é de: ${contaCorrente.saldo}")
+    println("Saldo da conta poupança agora é de: ${contaPoupanca.saldo}")
 }
 
 
