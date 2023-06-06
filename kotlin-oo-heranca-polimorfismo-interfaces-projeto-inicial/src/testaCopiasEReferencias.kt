@@ -1,3 +1,5 @@
+import java.awt.ContainerOrderFocusTraversalPolicy
+
 fun testaCopiasEReferencias() {
     val numeroX = 10
     var numeroY = numeroX
@@ -6,9 +8,9 @@ fun testaCopiasEReferencias() {
     println("numeroX $numeroX")
     println("numeroY $numeroY")
 
-    val contaJoao = Conta("João", 1002)
+    val contaJoao = ContaPoupaca("João", 1002)
     contaJoao.titular = "João"
-    var contaMaria = Conta("Maria", 1003)
+    var contaMaria = ContaCorrente("Maria", 1003)
     contaMaria.titular = "Maria"
     contaJoao.titular = "João"
 
